@@ -15,7 +15,7 @@ function Header() {
         <div className="categories-container">
             {
                 categories.map(item => <Link to={`/category/${item}` }
-                className="nav-link" >{item}</Link>)
+                className="nav-link" key={item}>{item}</Link>)
             }
         </div>
         <Link className="auth-link" to="/auth">Signup</Link>
