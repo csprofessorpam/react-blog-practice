@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage';
 import Header from './components/Header/Header';
 import CategoryArticle from './pages/CategoryArticle/CategoryArticle';
+import Auth from './pages/Auth/Auth';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:type" element={<CategoryArticle />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
       

@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     background-color:aliceblue;
+    padding: 0 20px;
 }
 
 .categories-container{
@@ -17,4 +18,17 @@
 .nav-link, .auth-link{
     text-decoration: none;
     margin-left: 10px;
+}
+.auth-link{
+    background-color: var(--button-bg);
+    padding:8px 16px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    color: white;
+  }
+
+  .username{
+    color:blue;
+    margin-right:10px;
 }

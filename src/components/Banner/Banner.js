@@ -21,6 +21,7 @@ function Banner() {
       //if TRUE (default is false)
 
       //set up query to filter responses
+      //sort and then get the first 5
       const q = query(articleRef, orderBy("createdAt", "desc"), limit(5))
 
       //instead of axios have to make calls to firebase
@@ -34,7 +35,7 @@ function Banner() {
 
         //console.log(res.docs)
 
-        //res.docs.map(item => {console.log(item)})
+        //res.docs.map(item => {console.log(item.data())})
 
         const articles = res.docs.map( item =>(
           { id:item.id,
@@ -42,10 +43,11 @@ function Banner() {
           }
         ))
         
-        console.log(articles); 
+        
         setMainArticle(articles[0])
         //put all the others starting with position 1
         setOtherArticles(articles.splice(1))
+        console.log(articles); 
       })
       .catch(err => console.log(err))
 
