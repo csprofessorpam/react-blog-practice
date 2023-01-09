@@ -11,7 +11,7 @@ function Header() {
 
   //get user data
   const [user] = useAuthState(auth);
-  console.log("user", user);
+  //console.log("user", user);
 
 
     const categories = ["Health", "Food", "Travel", "Technology"]
@@ -20,6 +20,13 @@ function Header() {
   return (
     <div className="header-container">
         <FaHome onClick={()=>navigate("/")} />
+        {
+          user?
+          <Link to="/addarticle" className="auth-link">Add Article</Link>
+          :
+          null
+        }
+
         <div className="categories-container">
             {
                 categories.map(item => <Link to={`/category/${item}` }
