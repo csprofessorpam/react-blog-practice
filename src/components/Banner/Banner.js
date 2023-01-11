@@ -33,7 +33,8 @@ function Banner() {
       .then ( res =>{
         //console.log(res.docs[0]._document.data.value.mapValue.fields.title.stringValue)
 
-        //console.log(res.docs)
+        //console.log("banner")
+        //console.log(res.docs[1].data())
 
         //res.docs.map(item => {console.log(item.data())})
 
