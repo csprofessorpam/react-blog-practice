@@ -3,6 +3,7 @@ import './ArticleCard.css'
 import {Link} from 'react-router-dom'
 
 function ArticleCard({article}) {
+  //show all the article data
   return (
     <div className="article-card">
         <img src={article?.imgeUrl} />

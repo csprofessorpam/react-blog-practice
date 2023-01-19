@@ -1,8 +1,9 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import {db} from '../../config/firebaseConfig'
-import {collection, getDoc, doc} from 'firebase/firestore'
+import {getDoc, doc} from 'firebase/firestore'
 import './ArticleDetails.css'
+import Likes from '../../components/Likes/Likes'
 
 function ArticleDetails() {
 
@@ -20,6 +21,7 @@ function ArticleDetails() {
 
             getDoc(docRef)
             .then(res =>{
+              //because just one item just data() to get info
                 console.log(res.data())
                 setArticle(res.data())
             })
@@ -36,12 +38,13 @@ function ArticleDetails() {
         <div className="details-info-container">
             <p><span className="article-span">Author:</span>{article?.createdBy?.toUpperCase()}</p>
             <p><span className="article-span published">Published:</span> {article?.createdAt?.toDate().toDateString()}</p>
+            <Likes articleId={articleId} />
         </div>
         <div>
             <img className="details-img" src={article?.imgeUrl} />
             <p className="article-description">{article?.paragraphOne}</p>
-          <p className="article-description">{article?.paragraphTwo}</p>
-          <p className="article-description">{article?.paragraphThree}</p>
+            <p className="article-description">{article?.paragraphTwo}</p>
+            <p className="article-description">{article?.paragraphThree}</p>
         </div>
     </div>
   )
