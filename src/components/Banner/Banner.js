@@ -2,8 +2,9 @@ import React from 'react'
 import './Banner.css'
 import {db} from '../../config/firebaseConfig'
 import { getDocs, collection, query, orderBy, limit } from 'firebase/firestore'
-
+import {useNavigate} from 'react-router-dom'
 function Banner() {
+  let navigate=useNavigate();
 
   //create state for articles
   const [mainArticle, setMainArticle] = React.useState('')
@@ -31,6 +32,8 @@ function Banner() {
       //use the query to filter the documents returned
       getDocs(q, articleRef)
       .then ( res =>{
+        //console.log("banner")
+        //console.log(res.docs)
         //console.log(res.docs[0]._document.data.value.mapValue.fields.title.stringValue)
 
         //console.log("banner")
@@ -56,7 +59,8 @@ function Banner() {
   )
   return (
     <div className="banner-container">
-      <div className="main-article-container" 
+      <div className="main-article-container"
+           onClick={()=>navigate(`/article/${mainArticle?.id}`)} 
            style={{backgroundImage:`url(${mainArticle?.imgeUrl})`}}>
             <div className="banner-info">
               <h2>{mainArticle?.title}...</h2>
@@ -70,6 +74,7 @@ function Banner() {
         {
           otherArticles.map(item =>(
             <div key={item.id} className="other-article-item"
+            onClick={()=>navigate(`/article/${item?.id}`)}
                  style={{backgroundImage:`url(${item?.imgeUrl})`}}>
                 <div className="banner-info">
                   <h3>{item?.title.slice(0,15)}...</h3>

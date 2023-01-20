@@ -7,6 +7,7 @@ import CategoryArticle from './pages/CategoryArticle/CategoryArticle';
 import Auth from './pages/Auth/Auth';
 import AddArticle from './pages/AddArticle/AddArticle';
 import ArticleDetails from './pages/ArticleDetails/ArticleDetails';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/addarticle" element={<AddArticle />} />
           <Route path="/article/:articleId" element={<ArticleDetails />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
       
     </div>

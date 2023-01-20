@@ -18,7 +18,8 @@
 }
 .details-info-container{
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+   
 }
 .published{
     margin-left:10px;
@@ -35,4 +36,9 @@
     object-fit: cover;
     margin-top:10px;
     /* object-position:center; */
+}
+
+.details-content{
+    border-bottom: 1px solid grey;
+    padding: 20px 0;
 }
