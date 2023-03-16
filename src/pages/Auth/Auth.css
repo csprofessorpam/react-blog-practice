@@ -1,5 +1,5 @@
 .auth-container{
-    min-height:100vh;
+    min-height:60vh;
 }
 .auth-form{
     background-color: var(--white);

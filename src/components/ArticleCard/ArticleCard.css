@@ -1,9 +1,7 @@
 .article-card{
     height: fit-content;
     margin: 10px;
-    width: 400px;
-   
-   
+    width: 400px; 
 }
 
 .article-card img{

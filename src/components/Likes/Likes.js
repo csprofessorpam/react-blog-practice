@@ -25,12 +25,14 @@ function Likes({articleId}) {
         ()=>{
             //did this user like this article?
             //need the collection
+            const likesRef = collection(db, "likes")
             //should have an if statement, only need to do this
             //if there is a logged in user
-            const likesRef = collection(db, "likes")
+            if (user){
+            
             //make a query to see if liked
             const q = query(likesRef, where ("articleId", "==", articleId),
-                                    where("userId", "==", user&&user?.uid))
+                                    where("userId", "==", user?.uid))
             //look for a matching document
             getDocs(q, likesRef)
             .then(res =>{
@@ -40,7 +42,7 @@ function Likes({articleId}) {
                 }
             })
             .catch(err => console.log(err))
-
+        }
             //now find out like count
             //make a query to count likes
             const q2 = query(likesRef, where ("articleId", "==", articleId))
@@ -51,6 +53,7 @@ function Likes({articleId}) {
                 
             })
             .catch(err => console.log(err))
+        
 
         },[isLiked, user]
     )
@@ -59,6 +62,8 @@ function Likes({articleId}) {
     //will need another collection that stores userid and articleid
   
     const handleLike = () =>{
+        //make sure user is logged in
+        if (user){
         //create reference to likes collection
         //will create collection if does not exist
         const likesRef = collection(db, "likes")
@@ -74,10 +79,13 @@ function Likes({articleId}) {
             setIsLiked(true);
         })
         .catch(err => console.log(err))
+    }
 
     }
   
     const handleUnlike = () =>{
+        //make sure user is logged in
+        if (user){
         console.log("userid", user.uid);
         console.log("articleID", articleId)
 
@@ -105,6 +113,7 @@ function Likes({articleId}) {
 
         })
         .catch(err => console.log(err))
+    }
 
         //set up reference to a single doc
         // const docRef=doc(db, 'likes', articleId)

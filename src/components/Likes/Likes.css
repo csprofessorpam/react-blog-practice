@@ -5,3 +5,7 @@
     cursor: pointer;
 
 }
+
+.like-icon span{
+    margin-left: 10px;
+}

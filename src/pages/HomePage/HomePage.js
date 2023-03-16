@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div className="homepage-container">
       <Banner />
-      HomePage
+      
     </div>
   )
 }

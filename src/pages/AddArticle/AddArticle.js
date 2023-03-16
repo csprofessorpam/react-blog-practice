@@ -31,7 +31,7 @@ function AddArticle() {
 
     })
 
-    //data is set in onChange of each input
+    //data is saved in onChange of each input
 
 
     const handleSubmit = (e)=>{
